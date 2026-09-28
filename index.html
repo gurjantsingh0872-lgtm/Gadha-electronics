@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gadha Electronics</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.9.0/fonts/remixicon.css" rel="stylesheet" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy:  '#0D1B2A',
+            blue:  '#1E6FD9',
+            cyan:  '#00C8F0',
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    .tab-content { display: none; }
+    .tab-content.active { display: grid; }
+    [data-tab].active { background: #0D1B2A; color: white; border-color: #0D1B2A; }
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-900 font-sans">
+
+<!-- ── NAVBAR ───────────────────────────────── -->
+<nav class="bg-navy sticky top-0 z-50 shadow-lg">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between h-16">
+
+    <!-- Brand -->
+    <div class="flex items-center gap-3">
+      <div class="w-9 h-9 rounded-lg bg-cyan flex items-center justify-center font-extrabold text-navy text-sm">GE</div>
+      <span class="text-white font-extrabold text-xl tracking-tight">Gadha <span class="text-cyan">Electronics</span></span>
+    </div>
+
+    <!-- Desktop links -->
+    <ul class="hidden md:flex gap-8 text-sm font-medium text-white/70">
+      <li><a href="#products" class="hover:text-cyan transition">Products</a></li>
+      <li><a href="#deals"    class="hover:text-cyan transition">Deals</a></li>
+      <li><a href="#services" class="hover:text-cyan transition">Services</a></li>
+      <li><a href="#staff"    class="hover:text-cyan transition">Our Team</a></li>
+      <li><a href="#contact"  class="hover:text-cyan transition">Contact</a></li>
+    </ul>
+
+    <!-- CTA + hamburger -->
+    <div class="flex items-center gap-3">
+      <a href="#contact" class="hidden md:inline-block bg-cyan text-navy font-bold text-sm px-5 py-2 rounded-lg hover:bg-sky-300 transition">Visit Store</a>
+      <button id="hamburger" class="md:hidden text-white text-2xl"><i class="ri-menu-3-line"></i></button>
+    </div>
+  </div>
+
+  <!-- Mobile menu -->
+  <div id="mobile-menu" class="hidden md:hidden bg-navy border-t border-white/10 px-4 pb-4">
+    <a href="#products" class="block py-3 text-white/80 border-b border-white/10 text-sm" onclick="closeMenu()">Products</a>
+    <a href="#deals"    class="block py-3 text-white/80 border-b border-white/10 text-sm" onclick="closeMenu()">Deals</a>
+    <a href="#services" class="block py-3 text-white/80 border-b border-white/10 text-sm" onclick="closeMenu()">Services</a>
+    <a href="#staff"    class="block py-3 text-white/80 border-b border-white/10 text-sm" onclick="closeMenu()">Our Team</a>
+    <a href="#contact"  class="block py-3 text-white/80 text-sm" onclick="closeMenu()">Contact</a>
+  </div>
+</nav>
+
+<!-- ── HERO ──────────────────────────────────── -->
+<section class="bg-navy min-h-screen flex items-center overflow-hidden">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 py-20 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center w-full">
+
+    <!-- Left -->
+    <div>
+      <span class="inline-flex items-center gap-2 bg-cyan/10 border border-cyan/30 text-cyan text-xs font-semibold px-4 py-2 rounded-full mb-6">
+        <i class="ri-map-pin-2-fill"></i> Ludhiana's Most Trusted Electronics Store
+      </span>
+      <h1 class="text-4xl sm:text-5xl xl:text-6xl font-extrabold text-white leading-tight mb-5">
+        Smart Gadgets.<br><span class="text-cyan">Smarter Prices.</span>
+      </h1>
+      <p class="text-white/60 text-base sm:text-lg max-w-lg leading-relaxed mb-8">
+        Family-owned since 2005. Jatha Lal Gadha and his team bring you the latest mobiles, laptops, TVs, home appliances and more — with honest advice and zero hidden charges.
+      </p>
+      <div class="flex flex-wrap gap-4">
+        <a href="#products" class="bg-cyan text-navy font-bold px-7 py-3 rounded-xl hover:bg-sky-300 transition text-sm">Browse Products</a>
+        <a href="#deals"    class="border border-white/30 text-white font-semibold px-7 py-3 rounded-xl hover:border-cyan hover:text-cyan transition text-sm">Today's Deals</a>
+      </div>
+    </div>
+
+    <!-- Right — cards -->
+    <div class="hidden lg:flex flex-col gap-4">
+      <div class="bg-white/5 border border-white/10 rounded-2xl p-5 flex items-center gap-4">
+        <div class="w-12 h-12 rounded-xl bg-blue flex items-center justify-center text-white text-2xl shrink-0"><i class="ri-smartphone-line"></i></div>
+        <div><p class="text-white font-semibold text-sm">Latest Smartphones</p><p class="text-white/50 text-xs mt-0.5">iPhone 16, Galaxy S25, Pixel 9</p></div>
+        <span class="ml-auto bg-red-500 text-white text-xs font-bold px-3 py-1 rounded-full">New</span>
+      </div>
+      <div class="bg-white/5 border border-white/10 rounded-2xl p-5 flex items-center gap-4">
+        <div class="w-12 h-12 rounded-xl bg-violet-600 flex items-center justify-center text-white text-2xl shrink-0"><i class="ri-macbook-line"></i></div>
+        <div><p class="text-white font-semibold text-sm">Laptop Mega Sale</p><p class="text-white/50 text-xs mt-0.5">Up to ₹15,000 off on select models</p></div>
+        <span class="ml-auto bg-amber-400 text-navy text-xs font-bold px-3 py-1 rounded-full">Deal</span>
+      </div>
+      <div class="bg-white/5 border border-white/10 rounded-2xl p-5 flex items-center gap-4">
+        <div class="w-12 h-12 rounded-xl bg-cyan/80 flex items-center justify-center text-navy text-2xl shrink-0"><i class="ri-tv-2-line"></i></div>
+        <div><p class="text-white font-semibold text-sm">4K Smart TVs</p><p class="text-white/50 text-xs mt-0.5">Starting at ₹28,999</p></div>
+      </div>
+      <div class="bg-white/5 border border-white/10 rounded-2xl p-5 flex items-center gap-4">
+        <div class="w-12 h-12 rounded-xl bg-emerald-600 flex items-center justify-center text-white text-2xl shrink-0"><i class="ri-service-line"></i></div>
+        <div><p class="text-white font-semibold text-sm">Free Home Installation</p><p class="text-white/50 text-xs mt-0.5">On AC, TV & washing machines</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── STATS ─────────────────────────────────── -->
+<div class="bg-blue">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 py-7 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6 text-center text-white">
+    <div><p class="text-3xl font-extrabold">19+</p><p class="text-xs opacity-75 mt-1">Years in Business</p></div>
+    <div><p class="text-3xl font-extrabold">12K+</p><p class="text-xs opacity-75 mt-1">Happy Customers</p></div>
+    <div><p class="text-3xl font-extrabold">500+</p><p class="text-xs opacity-75 mt-1">Products in Store</p></div>
+    <div><p class="text-3xl font-extrabold">All</p><p class="text-xs opacity-75 mt-1">Major Brands</p></div>
+    <div class="col-span-2 sm:col-span-1"><p class="text-3xl font-extrabold">Same Day</p><p class="text-xs opacity-75 mt-1">Delivery Available</p></div>
+  </div>
+</div>
+
+<!-- ── PRODUCTS ───────────────────────────────── -->
+<section class="bg-white py-20 px-4 sm:px-6" id="products">
+  <div class="max-w-7xl mx-auto">
+    <div class="mb-10">
+      <h2 class="text-3xl sm:text-4xl font-extrabold text-navy">Our Products</h2>
+      <p class="text-gray-400 mt-2 text-sm">Browse by category. Every product comes with a warranty and our service guarantee.</p>
+      <div class="w-12 h-1 bg-cyan rounded mt-4"></div>
+    </div>
+
+    <!-- Tabs -->
+    <div class="flex flex-wrap gap-2 mb-8" id="catTabs">
+      <button data-tab="mobiles"  class="tab-btn active flex items-center gap-2 px-4 py-2 rounded-full border border-gray-200 text-sm font-medium transition hover:bg-navy hover:text-white hover:border-navy"><i class="ri-smartphone-line"></i>Mobiles</button>
+      <button data-tab="laptops"  class="tab-btn flex items-center gap-2 px-4 py-2 rounded-full border border-gray-200 text-sm font-medium transition hover:bg-navy hover:text-white hover:border-navy"><i class="ri-macbook-line"></i>Laptops</button>
+      <button data-tab="tvs"      class="tab-btn flex items-center gap-2 px-4 py-2 rounded-full border border-gray-200 text-sm font-medium transition hover:bg-navy hover:text-white hover:border-navy"><i class="ri-tv-2-line"></i>Televisions</button>
+      <button data-tab="washing"  class="tab-btn flex items-center gap-2 px-4 py-2 rounded-full border border-gray-200 text-sm font-medium transition hover:bg-navy hover:text-white hover:border-navy"><i class="ri-loader-4-line"></i>Washing Machines</button>
+      <button data-tab="ac"       class="tab-btn flex items-center gap-2 px-4 py-2 rounded-full border border-gray-200 text-sm font-medium transition hover:bg-navy hover:text-white hover:border-navy"><i class="ri-temp-cold-line"></i>Air Conditioners</button>
+      <button data-tab="audio"    class="tab-btn flex items-center gap-2 px-4 py-2 rounded-full border border-gray-200 text-sm font-medium transition hover:bg-navy hover:text-white hover:border-navy"><i class="ri-headphone-line"></i>Audio</button>
+      <button data-tab="cameras"  class="tab-btn flex items-center gap-2 px-4 py-2 rounded-full border border-gray-200 text-sm font-medium transition hover:bg-navy hover:text-white hover:border-navy"><i class="ri-camera-line"></i>Cameras</button>
+      <button data-tab="kitchen"  class="tab-btn flex items-center gap-2 px-4 py-2 rounded-full border border-gray-200 text-sm font-medium transition hover:bg-navy hover:text-white hover:border-navy"><i class="ri-restaurant-line"></i>Kitchen</button>
+    </div>
+
+    <!-- Mobiles -->
+    <div id="tab-mobiles" class="tab-content active grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5">
+      <div class="bg-gray-50 border border-gray-100 rounded-2xl overflow-hidden hover:shadow-lg hover:-translate-y-1 transition">
+        <div class="h-44 bg-blue/5 flex items-center justify-center text-6xl relative"><span>📱</span><span class="absolute top-3 left-3 bg-red-500 text-white text-xs font-bold px-2.5 py-0.5 rounded-full">Hot</span></div>
+        <div class="p-4"><h3 class="font-bold text-sm">Apple iPhone 16</h3><p class="text-gray-400 text-xs mt-1 mb-3">128GB · Starlight · 5G</p><div class="flex items-center justify-between"><div><p class="text-gray-400 text-xs line-through">₹79,999</p><p class="font-extrabold text-navy text-base">₹74,999</p></div><button class="bg-navy text-white text-xs font-semibold px-3 py-2 rounded-lg hover:bg-blue transition">Enquire</button></div></div>
+      </div>
+      <div class="bg-gray-50 border border-gray-100 rounded-2xl overflow-hidden hover:shadow-lg hover:-translate-y-1 transition">
+        <div class="h-44 bg-blue/5 flex items-center justify-center text-6xl">📱</div>
+        <div class="p-4"><h3 class="font-bold text-sm">Samsung Galaxy S25</h3><p class="text-gray-400 text-xs mt-1 mb-3">256GB · Phantom Black · 5G</p><div class="flex items-center justify-between"><div><p class="text-gray-400 text-xs line-through">₹84,999</p><p class="font-extrabold text-navy text-base">₹79,999</p></div><button class="bg-navy text-white text-xs font-semibold px-3 py-2 rounded-lg hover:bg-blue transition">Enquire</button></div></div>
+      </div>
+      <div class="bg-gray-50 border border-gray-100 rounded-2xl overflow-hidden hover:shadow-lg hover:-translate-y-1 transition">
+        <div class="h-44 bg-blue/5 flex items-center justify-center text-6xl relative"><span>📱</span><span class="absolute top-3 left-3 bg-blue text-white text-xs font-bold px-2.5 py-0.5 rounded-full">New</span></div>
+        <div class="p-4"><h3 class="font-bold text-sm">Google Pixel 9</h3><p class="text-gray-400 text-xs mt-1 mb-3">128GB · Hazel · 5G</p><div class="flex items-center justify-between"><div><p class="font-extrabold text-navy text-base">₹67,999</p></div><button class="bg-navy text-white text-xs font-semibold px-3 py-2 rounded-lg hover:bg-blue transition">Enquire</button></div></div>
+      </div>
+      <div class="bg-gray-50 border border-gray-100 rounded-2xl overflow-hidden hover:shadow-lg hover:-translate-y-1 transition">
+        <div class="h-44 bg-blue/5 flex items-center justify-center text-6xl">📱</div>
+        <div class="p-4"><h3 class="font-bold text-sm">OnePlus 13</h3><p class="text-gray-400 text-xs mt-1 mb-3">256GB · Midnight Ocean · 5G</p><div class="flex items-center justify-between"><div><p class="text-gray-400 text-xs line-through">₹72,999</p><p class="font-extrabold text-navy text-base">₹68,999</p></div><button class="bg-navy text-white text-xs font-semibold px-3 py-2 rounded-lg hover:bg-blue transition">Enquire</button></div></div>
+      </div>
+      <div class="bg-gray-50 border border-gray-100 rounded-2xl overflow-hidden hover:shadow-lg hover:-translate-y-1 transition">
+        <div class="h-44 bg-blue/5 flex items-center justify-center text-6xl">📱</div>
+        <div class="p-4"><h3 class="font-bold text-sm">Redmi Note 14 Pro</h3><p class="text-gray-400 text-xs mt-1 mb-3">128GB · Lavender Purple</p><div class="flex items-center justify-between"><div><p class="font-extrabold text-navy text-base">₹21,999</p></div><button class="bg-navy text-white text-xs font-semibold px-3 py-2 rounded-lg hover:bg-blue transition">Enquire</button></div></div>
+      </div>
+      <div class="bg-gray-50 border border-gray-100 rounded-2xl overflow-hidden hover:shadow-lg hover:-translate-y-1 transition">
+        <div class="h-44 bg-blue/5 flex items-center justify-center text-6xl">📱</div>
+        <div class="p-4"><h3 class="font-bold text-sm">realme GT 7 Pro</h3><p class="text-gray-400 text-xs mt-1 mb-3">256GB · Mars Orange · 5G</p><div class="flex items-center justify-between"><div><p class="font-extrabold text-navy text-base">₹36,999</p></div><button class="bg-navy text-white text-xs font-semibold px-3 py-2 rounded-lg hover:bg-blue transition">Enquire</button></div></div>
+      </div>
+    </div>
+
+    <!-- Laptops -->
+    <div id="tab-laptops" class="tab-content grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5">
+      <div class="bg-gray-50 border border-gray-100 rounded-2xl overflow-hidden hover:shadow-lg hover:-translate-y-1 transition">
+        <div class="h-44 bg-violet-50 flex items-center justify-center text-6xl relative"><span>💻</span><span class="absolute top-3 left-3 bg-red-500 text-white text-xs font-bold px-2.5 py-0.5 rounded-full">Hot</span></div>
+        <div class="p-4"><h3 class="font-bold text-sm">MacBook Air M3</h3><p class="text-gray-400 text-xs mt-1 mb-3">16GB · 512GB SSD · 15"</p><div class="flex items-center justify-between"><div><p class="text-gray-400 text-xs line-through">₹1,49,999</p><p class="font-extrabold text-navy text-base">₹1,34,999</p></div><button class="bg-navy text-white text-xs font-semibold px-3 py-2 rounded-lg hover:bg-blue transition">Enquire</button></div></div>
+      </div>
+      <div class="bg-gray-50 border border-gray-100 rounded-2xl overflow-hidden hover:shadow-lg hover:-translate-y-1 transition">
+        <div class="h-44 bg-violet-50 flex items-center justify-center text-6xl">💻</div>
+        <div class="p-4"><h3 class="font-bold text-sm">Dell XPS 15</h3><p class="text-gray-400 text-xs mt-1 mb-3">Intel i7 · 32GB · 1TB SSD</p><div class="flex items-center justify-between"><div><p class="font-extrabold text-navy text-base">₹1,19,999</p></div><button class="bg-navy text-white text-xs font-semibold px-3 py-2 rounded-lg hover:bg-blue transition">Enquire</button></div></div>
+      </div>
+      <div class="bg-gray-50 border border-gray-100 rounded-2xl overflow-hidden hover:shadow-lg hover:-translate-y-1 transition">
+        <div class="h-44 bg-violet-50 flex items-center justify-center text-6xl relative"><span>💻</span><span class="absolute top-3 left-3 bg-blue text-white text-xs font-bold px-2.5 py-0.5 rounded-full">New</span></div>
+        <div class="p-4"><h3 class="font-bold text-sm">HP Spectre x360</h3><p class="text-gray-400 text-xs mt-1 mb-3">Core Ultra 7 · 32GB · 1TB</p><div class="flex items-center justify-between"><div><p class="font-extrabold text-navy text-base">₹1,05,999</p></div><button class="bg-navy text-white text-xs font-semibold px-3 py-2 rounded-lg hover:bg-blue transition">Enquire</button></div></div>
+      </div>
+      <div class="bg-gray-50 border border-gray-100 rounded-2xl overflow-hidden hover:shadow-lg hover:-translate-y-1 transition">
+        <div class="h-44 bg-violet-50 flex items-center justify-center text-6xl">💻</div>
+        <div class="p-4"><h3 class="font-bold text-sm">Lenovo IdeaPad Slim 5</h3><p class="text-gray-400 text-xs mt-1 mb-3">Ryzen 5 · 16GB · 512GB</p><div class="flex items-center justify-between"><div><p class="text-gray-400 text-xs line-through">₹62,999</p><p class="font-extrabold text-navy text-base">₹54,999</p></div><button class="bg-navy text-white text-xs font-semibold px-3 py-2 rounded-lg hover:bg-blue transition">Enquire</button></div></div>
+      </div>
+      <div class="bg-gray-50 border border-gray-100 rounded-2xl overflow-hidden hover:shadow-lg hover:-translate-y-1 transition">
+        <div class="h-44 bg-violet-50 flex items-center justify-center text-6xl">💻</div>
+        <div class="p-4"><h3 class="font-bold text-sm">ASUS ROG Strix G16</h3><p class="text-gray-400 text-xs mt-1 mb-3">RTX 4070 · i9 · 32GB Gaming</p><div class="flex items-center justify-between"><div><p class="font-extrabold text-navy text-base">₹1,79,999</p></div><button class="bg-navy text-white text-xs font-semibold px-3 py-2 rounded-lg hover:bg-blue transition">Enquire</button></div></div>
+      </div>
+      <div class="bg-gray-50 border border-gray-100 rounded-2xl overflow-hidden hover:shadow-lg hover:-translate-y-1 transition">
+        <div class="h-44 bg-violet-50 flex items-center justify-center text-6xl">💻</div>
+        <div class="p-4"><h3 class="font-bold text-sm">Acer Aspire 3</h3><p class="text-gray-400 text-xs mt-1 mb-3">Ryzen 3 · 8GB · 256GB</p><div class="flex items-center justify-between"><div><p class="font-extrabold text-navy text-base">₹29,999</p></div><button class="bg-navy text-white text-xs font-semibold px-3 py-2 rounded-lg hover:bg-blue transition">Enquire</button></div></div>
+      </div>
+    </div>
+
+    <!-- TVs -->
+    <div id="tab-tvs" class="tab-content grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5">
+      <div class="bg-gray-50 border border-gray-100 rounded-2xl overflow-hidden hover:shadow-lg hover:-translate-y-1 transition">
+        <div class="h-44 bg-sky-50 flex items-center justify-center text-6xl relative"><span>📺</span><span class="absolute top-3 left-3 bg-red-500 text-white text-xs font-bold px-2.5 py-0.5 rounded-full">Hot</span></div>
+        <div class="p-4"><h3 class="font-bold text-sm">Sony Bravia 7 OLED</h3><p class="text-gray-400 text-xs mt-1 mb-3">65" · 4K · Google TV</p><div class="flex items-center justify-between"><div><p class="text-gray-400 text-xs line-through">₹1,99,999</p><p class="font-extrabold text-navy text-base">₹1,74,999</p></div><button class="bg-navy text-white text-xs font-semibold px-3 py-2 rounded-lg hover:bg-blue transition">Enquire</button></div></div>
+      </div>
+      <div class="bg-gray-50 border border-gray-100 rounded-2xl overflow-hidden hover:shadow-lg hover:-translate-y-1 transition">
+        <div class="h-44 bg-sky-50 flex items-center justify-center text-6xl">📺</div>
+        <div class="p-4"><h3 class="font-bold text-sm">Samsung QLED Q80D</h3><p class="text-gray-400 text-xs mt-1 mb-3">55" · 4K · Tizen OS</p><div class="flex items-center justify-between"><div><p class="font-extrabold text-navy text-base">₹89,999</p></div><button class="bg-navy text-white text-xs font-semibold px-3 py-2 rounded-lg hover:bg-blue transition">Enquire</button></div></div>
+      </div>
+      <div class="bg-gray-50 border border-gray-100 rounded-2xl overflow-hidden hover:shadow-lg hover:-translate-y-1 transition">
+        <div class="h-44 bg-sky-50 flex items-center justify-center text-6xl relative"><span>📺</span><span class="absolute top-3 left-3 bg-blue text-white text-xs font-bold px-2.5 py-0.5 rounded-full">New</span></div>
+        <div class="p-4"><h3 class="font-bold text-sm">LG C4 OLED evo</h3><p class="text-gray-400 text-xs mt-1 mb-3">55" · 4K · webOS 24</p><div class="flex items-center justify-between"><div><p class="font-extrabold text-navy text-base">₹1,29,999</p></div><button class="bg-navy text-white text-xs font-semibold px-3 py-2 rounded-lg hover:bg-blue transition">Enquire</button></div></div>
+      </div>
+      <div class="bg-gray-50 border border-gray-100 rounded-2xl overflow-hidden hover:shadow-lg hover:-translate-y-1 transition">
+        <div class="h-44 bg-sky-50 flex items-center justify-center text-6xl">📺</div>
+        <div class="p-4"><h3 class="font-bold text-sm">Mi TV X Pro 43"</h3><p class="text-gray-400 text-xs mt-1 mb-3">43" · 4K · Android TV</p><div class="flex items-center justify-between"><div><p class="text-gray-400 text-xs line-through">₹38,999</p><p class="font-extrabold text-navy text-base">₹32,999</p></div><button class="bg-navy text-white text-xs font-semibold px-3 py-2 rounded-lg hover:bg-blue transition">Enquire</button></div></div>
+      </div>
+      <div class="bg-gray-50 border border-gray-100 rounded-2xl overflow-hidden hover:shadow-lg hover:-translate-y-1 transition">
+        <div class="h-44 bg-sky-50 flex items-center justify-center text-6xl">📺</div>
+        <div class="p-4"><h3 class="font-bold text-sm">Vu Premium 4K 50"</h3><p class="text-gray-400 text-xs mt-1 mb-3">50" · 4K · Android TV</p><div class="flex items-center justify-between"><div><p class="font-extrabold text-navy text-base">₹28,999</p></div><button class="bg-navy text-white text-xs font-semibold px-3 py-2 rounded-lg hover:bg-blue transition">Enquire</button></div></div>
+      </div>
+    </div>
+
+    <!-- Washing Machines -->
+    <div id="tab-washing" class="tab-content grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5">
+      <div class="bg-gray-50 border border-gray-100 rounded-2xl overflow-hidden hover:shadow-lg hover:-translate-y-1 transition">
+        <div class="h-44 bg-emerald-50 flex items-center justify-center text-6xl relative"><span>🫧</span><span class="absolute top-3 left-3 bg-red-500 text-white text-xs font-bold px-2.5 py-0.5 rounded-full">Hot</span></div>
+        <div class="p-4"><h3 class="font-bold text-sm">LG FrontLoad 8kg</h3><p class="text-gray-400 text-xs mt-1 mb-3">Inverter · Steam Wash · Wi-Fi</p><div class="flex items-center justify-between"><div><p class="text-gray-400 text-xs line-through">₹62,999</p><p class="font-extrabold text-navy text-base">₹54,999</p></div><button class="bg-navy text-white text-xs font-semibold px-3 py-2 rounded-lg hover:bg-blue transition">Enquire</button></div></div>
+      </div>
+      <div class="bg-gray-50 border border-gray-100 rounded-2xl overflow-hidden hover:shadow-lg hover:-translate-y-1 transition">
+        <div class="h-44 bg-emerald-50 flex items-center justify-center text-6xl">🫧</div>
+        <div class="p-4"><h3 class="font-bold text-sm">Samsung Eco Bubble 7kg</h3><p class="text-gray-400 text-xs mt-1 mb-3">Front Load · AI Control</p><div class="flex items-center justify-between"><div><p class="font-extrabold text-navy text-base">₹44,999</p></div><button class="bg-navy text-white text-xs font-semibold px-3 py-2 rounded-lg hover:bg-blue transition">Enquire</button></div></div>
+      </div>
+      <div class="bg-gray-50 border border-gray-100 rounded-2xl overflow-hidden hover:shadow-lg hover:-translate-y-1 transition">
+        <div class="h-44 bg-emerald-50 flex items-center justify-center text-6xl">🫧</div>
+        <div class="p-4"><h3 class="font-bold text-sm">Whirlpool Supreme 6.5kg</h3><p class="text-gray-400 text-xs mt-1 mb-3">Top Load · Hard Water Wash</p><div class="flex items-center justify-between"><div><p class="text-gray-400 text-xs line-through">₹26,999</p><p class="font-extrabold text-navy text-base">₹22,999</p></div><button class="bg-navy text-white text-xs font-semibold px-3 py-2 rounded-lg hover:bg-blue transition">Enquire</button></div></div>
+      </div>
+      <div class="bg-gray-50 border border-gray-100 rounded-2xl overflow-hidden hover:shadow-lg hover:-translate-y-1 transition">
+        <div class="h-44 bg-emerald-50 flex items-center justify-center text-6xl">🫧</div>
+        <div class="p-4"><h3 class="font-bold text-sm">Bosch Serie 6 9kg</h3><p class="text-gray-400 text-xs mt-1 mb-3">Front Load · EcoSilence</p><div class="flex items-center justify-between"><div><p class="font-extrabold text-navy text-base">₹68,999</p></div><button class="bg-navy text-white text-xs font-semibold px-3 py-2 rounded-lg hover:bg-blue transition">Enquire</button></div></div>
+      </div>
+    </div>
+
+    <!-- ACs -->
+    <div id="tab-ac" class="tab-content grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5">
+      <div class="bg-gray-50 border border-gray-100 rounded-2xl overflow-hidden hover:shadow-lg hover:-translate-y-1 transition">
+        <div class="h-44 bg-cyan/10 flex items-center justify-center text-6xl relative"><span>❄️</span><span class="absolute top-3 left-3 bg-red-500 text-white text-xs font-bold px-2.5 py-0.5 rounded-full">Hot</span></div>
+        <div class="p-4"><h3 class="font-bold text-sm">Daikin 1.5T Inverter</h3><p class="text-gray-400 text-xs mt-1 mb-3">5 Star · Split · Wi-Fi</p><div class="flex items-center justify-between"><div><p class="text-gray-400 text-xs line-through">₹48,999</p><p class="font-extrabold text-navy text-base">₹41,999</p></div><button class="bg-navy text-white text-xs font-semibold px-3 py-2 rounded-lg hover:bg-blue transition">Enquire</button></div></div>
+      </div>
+      <div class="bg-gray-50 border border-gray-100 rounded-2xl overflow-hidden hover:shadow-lg hover:-translate-y-1 transition">
+        <div class="h-44 bg-cyan/10 flex items-center justify-center text-6xl">❄️</div>
+        <div class="p-4"><h3 class="font-bold text-sm">LG Dual Inverter 2T</h3><p class="text-gray-400 text-xs mt-1 mb-3">5 Star · Split · Ocean Black</p><div class="flex items-center justify-between"><div><p class="font-extrabold text-navy text-base">₹52,999</p></div><button class="bg-navy text-white text-xs font-semibold px-3 py-2 rounded-lg hover:bg-blue transition">Enquire</button></div></div>
+      </div>
+      <div class="bg-gray-50 border border-gray-100 rounded-2xl overflow-hidden hover:shadow-lg hover:-translate-y-1 transition">
+        <div class="h-44 bg-cyan/10 flex items-center justify-center text-6xl">❄️</div>
+        <div class="p-4"><h3 class="font-bold text-sm">Voltas 1T Inverter</h3><p class="text-gray-400 text-xs mt-1 mb-3">3 Star · Split</p><div class="flex items-center justify-between"><div><p class="text-gray-400 text-xs line-through">₹32,999</p><p class="font-extrabold text-navy text-base">₹29,999</p></div><button class="bg-navy text-white text-xs font-semibold px-3 py-2 rounded-lg hover:bg-blue transition">Enquire</button></div></div>
+      </div>
+      <div class="bg-gray-50 border border-gray-100 rounded-2xl overflow-hidden hover:shadow-lg hover:-translate-y-1 transition">
+        <div class="h-44 bg-cyan/10 flex items-center justify-center text-6xl">❄️</div>
+        <div class="p-4"><h3 class="font-bold text-sm">Blue Star 1.5T Window</h3><p class="text-gray-400 text-xs mt-1 mb-3">3 Star · Window Unit</p><div class="flex items-center justify-between"><div><p class="font-extrabold text-navy text-base">₹27,999</p></div><button class="bg-navy text-white text-xs font-semibold px-3 py-2 rounded-lg hover:bg-blue transition">Enquire</button></div></div>
+      </div>
+    </div>
+
+    <!-- Audio -->
+    <div id="tab-audio" class="tab-content grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5">
+      <div class="bg-gray-50 border border-gray-100 rounded-2xl overflow-hidden hover:shadow-lg hover:-translate-y-1 transition">
+        <div class="h-44 bg-amber-50 flex items-center justify-center text-6xl relative"><span>🎧</span><span class="absolute top-3 left-3 bg-red-500 text-white text-xs font-bold px-2.5 py-0.5 rounded-full">Hot</span></div>
+        <div class="p-4"><h3 class="font-bold text-sm">Sony WH-1000XM6</h3><p class="text-gray-400 text-xs mt-1 mb-3">ANC · 30hr battery · BT 5.3</p><div class="flex items-center justify-between"><div><p class="text-gray-400 text-xs line-through">₹34,999</p><p class="font-extrabold text-navy text-base">₹29,999</p></div><button class="bg-navy text-white text-xs font-semibold px-3 py-2 rounded-lg hover:bg-blue transition">Enquire</button></div></div>
+      </div>
+      <div class="bg-gray-50 border border-gray-100 rounded-2xl overflow-hidden hover:shadow-lg hover:-translate-y-1 transition">
+        <div class="h-44 bg-amber-50 flex items-center justify-center text-6xl">🎧</div>
+        <div class="p-4"><h3 class="font-bold text-sm">Bose QuietComfort 45</h3><p class="text-gray-400 text-xs mt-1 mb-3">ANC · 24hr · Wireless</p><div class="flex items-center justify-between"><div><p class="font-extrabold text-navy text-base">₹24,999</p></div><button class="bg-navy text-white text-xs font-semibold px-3 py-2 rounded-lg hover:bg-blue transition">Enquire</button></div></div>
+      </div>
+      <div class="bg-gray-50 border border-gray-100 rounded-2xl overflow-hidden hover:shadow-lg hover:-translate-y-1 transition">
+        <div class="h-44 bg-amber-50 flex items-center justify-center text-6xl">🔊</div>
+        <div class="p-4"><h3 class="font-bold text-sm">JBL Xtreme 4</h3><p class="text-gray-400 text-xs mt-1 mb-3">Portable BT Speaker · IP67</p><div class="flex items-center justify-between"><div><p class="text-gray-400 text-xs line-through">₹22,999</p><p class="font-extrabold text-navy text-base">₹18,999</p></div><button class="bg-navy text-white text-xs font-semibold px-3 py-2 rounded-lg hover:bg-blue transition">Enquire</button></div></div>
+      </div>
+      <div class="bg-gray-50 border border-gray-100 rounded-2xl overflow-hidden hover:shadow-lg hover:-translate-y-1 transition">
+        <div class="h-44 bg-amber-50 flex items-center justify-center text-6xl">🎧</div>
+        <div class="p-4"><h3 class="font-bold text-sm">boAt Airdopes 500</h3><p class="text-gray-400 text-xs mt-1 mb-3">TWS · ANC · 50hr total</p><div class="flex items-center justify-between"><div><p class="font-extrabold text-navy text-base">₹3,499</p></div><button class="bg-navy text-white text-xs font-semibold px-3 py-2 rounded-lg hover:bg-blue transition">Enquire</button></div></div>
+      </div>
+    </div>
+
+    <!-- Cameras -->
+    <div id="tab-cameras" class="tab-content grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5">
+      <div class="bg-gray-50 border border-gray-100 rounded-2xl overflow-hidden hover:shadow-lg hover:-translate-y-1 transition">
+        <div class="h-44 bg-rose-50 flex items-center justify-center text-6xl relative"><span>📷</span><span class="absolute top-3 left-3 bg-blue text-white text-xs font-bold px-2.5 py-0.5 rounded-full">New</span></div>
+        <div class="p-4"><h3 class="font-bold text-sm">Sony Alpha 7R V</h3><p class="text-gray-400 text-xs mt-1 mb-3">61MP · Full Frame · 8K</p><div class="flex items-center justify-between"><div><p class="font-extrabold text-navy text-base">₹3,29,999</p></div><button class="bg-navy text-white text-xs font-semibold px-3 py-2 rounded-lg hover:bg-blue transition">Enquire</button></div></div>
+      </div>
+      <div class="bg-gray-50 border border-gray-100 rounded-2xl overflow-hidden hover:shadow-lg hover:-translate-y-1 transition">
+        <div class="h-44 bg-rose-50 flex items-center justify-center text-6xl">📷</div>
+        <div class="p-4"><h3 class="font-bold text-sm">Canon EOS R8</h3><p class="text-gray-400 text-xs mt-1 mb-3">24MP · Full Frame · 4K</p><div class="flex items-center justify-between"><div><p class="text-gray-400 text-xs line-through">₹1,44,999</p><p class="font-extrabold text-navy text-base">₹1,22,999</p></div><button class="bg-navy text-white text-xs font-semibold px-3 py-2 rounded-lg hover:bg-blue transition">Enquire</button></div></div>
+      </div>
+      <div class="bg-gray-50 border border-gray-100 rounded-2xl overflow-hidden hover:shadow-lg hover:-translate-y-1 transition">
+        <div class="h-44 bg-rose-50 flex items-center justify-center text-6xl">📷</div>
+        <div class="p-4"><h3 class="font-bold text-sm">Nikon Z50 II</h3><p class="text-gray-400 text-xs mt-1 mb-3">21MP · APS-C · Vlogging</p><div class="flex items-center justify-between"><div><p class="font-extrabold text-navy text-base">₹89,999</p></div><button class="bg-navy text-white text-xs font-semibold px-3 py-2 rounded-lg hover:bg-blue transition">Enquire</button></div></div>
+      </div>
+      <div class="bg-gray-50 border border-gray-100 rounded-2xl overflow-hidden hover:shadow-lg hover:-translate-y-1 transition">
+        <div class="h-44 bg-rose-50 flex items-center justify-center text-6xl">📹</div>
+        <div class="p-4"><h3 class="font-bold text-sm">GoPro HERO13 Black</h3><p class="text-gray-400 text-xs mt-1 mb-3">5.3K · HyperSmooth 6.0</p><div class="flex items-center justify-between"><div><p class="font-extrabold text-navy text-base">₹44,999</p></div><button class="bg-navy text-white text-xs font-semibold px-3 py-2 rounded-lg hover:bg-blue transition">Enquire</button></div></div>
+      </div>
+    </div>
+
+    <!-- Kitchen -->
+    <div id="tab-kitchen" class="tab-content grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5">
+      <div class="bg-gray-50 border border-gray-100 rounded-2xl overflow-hidden hover:shadow-lg hover:-translate-y-1 transition">
+        <div class="h-44 bg-orange-50 flex items-center justify-center text-6xl relative"><span>🍳</span><span class="absolute top-3 left-3 bg-red-500 text-white text-xs font-bold px-2.5 py-0.5 rounded-full">Hot</span></div>
+        <div class="p-4"><h3 class="font-bold text-sm">Samsung 28L Convection MW</h3><p class="text-gray-400 text-xs mt-1 mb-3">Microwave · Slim Fry · Black</p><div class="flex items-center justify-between"><div><p class="text-gray-400 text-xs line-through">₹18,999</p><p class="font-extrabold text-navy text-base">₹14,999</p></div><button class="bg-navy text-white text-xs font-semibold px-3 py-2 rounded-lg hover:bg-blue transition">Enquire</button></div></div>
+      </div>
+      <div class="bg-gray-50 border border-gray-100 rounded-2xl overflow-hidden hover:shadow-lg hover:-translate-y-1 transition">
+        <div class="h-44 bg-orange-50 flex items-center justify-center text-6xl">❄️</div>
+        <div class="p-4"><h3 class="font-bold text-sm">LG 360L Double Door Fridge</h3><p class="text-gray-400 text-xs mt-1 mb-3">Frost Free · Smart Inverter</p><div class="flex items-center justify-between"><div><p class="font-extrabold text-navy text-base">₹36,999</p></div><button class="bg-navy text-white text-xs font-semibold px-3 py-2 rounded-lg hover:bg-blue transition">Enquire</button></div></div>
+      </div>
+      <div class="bg-gray-50 border border-gray-100 rounded-2xl overflow-hidden hover:shadow-lg hover:-translate-y-1 transition">
+        <div class="h-44 bg-orange-50 flex items-center justify-center text-6xl">🍳</div>
+        <div class="p-4"><h3 class="font-bold text-sm">Philips Air Fryer XXL</h3><p class="text-gray-400 text-xs mt-1 mb-3">7.3L · Rapid Air Tech</p><div class="flex items-center justify-between"><div><p class="text-gray-400 text-xs line-through">₹14,999</p><p class="font-extrabold text-navy text-base">₹11,499</p></div><button class="bg-navy text-white text-xs font-semibold px-3 py-2 rounded-lg hover:bg-blue transition">Enquire</button></div></div>
+      </div>
+      <div class="bg-gray-50 border border-gray-100 rounded-2xl overflow-hidden hover:shadow-lg hover:-translate-y-1 transition">
+        <div class="h-44 bg-orange-50 flex items-center justify-center text-6xl">☕</div>
+        <div class="p-4"><h3 class="font-bold text-sm">Nespresso Vertuo Pop</h3><p class="text-gray-400 text-xs mt-1 mb-3">Coffee Machine · 5 Sizes</p><div class="flex items-center justify-between"><div><p class="font-extrabold text-navy text-base">₹12,999</p></div><button class="bg-navy text-white text-xs font-semibold px-3 py-2 rounded-lg hover:bg-blue transition">Enquire</button></div></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── DEALS BANNER ───────────────────────────── -->
+<section class="py-16 px-4 sm:px-6 bg-gray-50" id="deals">
+  <div class="max-w-7xl mx-auto">
+    <div class="mb-10">
+      <h2 class="text-3xl sm:text-4xl font-extrabold text-navy">Today's Deals</h2>
+      <p class="text-gray-400 mt-2 text-sm">Limited stock, real savings. Updated daily.</p>
+      <div class="w-12 h-1 bg-cyan rounded mt-4"></div>
+    </div>
+    <div class="bg-navy rounded-3xl p-8 sm:p-12 flex flex-col sm:flex-row items-center justify-between gap-8 relative overflow-hidden">
+      <div class="absolute right-40 top-1/2 -translate-y-1/2 text-[10rem] opacity-5 select-none">⚡</div>
+      <div class="text-center sm:text-left">
+        <p class="text-cyan text-3xl sm:text-4xl font-extrabold">Upto 30% Off</p>
+        <h2 class="text-white text-xl sm:text-2xl font-bold mt-2 mb-3">Monsoon Mega Sale — All Week Long</h2>
+        <p class="text-white/60 text-sm max-w-lg">Air conditioners, refrigerators, and washing machines. Walk in, pick up, save big.</p>
+      </div>
+      <a href="#contact" class="shrink-0 bg-cyan text-navy font-bold px-8 py-3 rounded-xl hover:bg-sky-300 transition text-sm w-full sm:w-auto text-center">Visit the Store</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── SERVICES ───────────────────────────────── -->
+<section class="bg-white py-20 px-4 sm:px-6" id="services">
+  <div class="max-w-7xl mx-auto">
+    <div class="mb-10">
+      <h2 class="text-3xl sm:text-4xl font-extrabold text-navy">What We Offer</h2>
+      <p class="text-gray-400 mt-2 text-sm">More than just a shop — we're here before, during, and after your purchase.</p>
+      <div class="w-12 h-1 bg-cyan rounded mt-4"></div>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+      <div class="bg-gray-50 border border-gray-100 rounded-2xl p-6">
+        <div class="w-12 h-12 rounded-xl bg-navy flex items-center justify-center text-cyan text-xl mb-4"><i class="ri-truck-line"></i></div>
+        <h3 class="font-bold text-sm mb-2">Same-Day Delivery</h3>
+        <p class="text-gray-400 text-xs leading-relaxed">Order before noon, get it home by evening. Available across Ludhiana.</p>
+      </div>
+      <div class="bg-gray-50 border border-gray-100 rounded-2xl p-6">
+        <div class="w-12 h-12 rounded-xl bg-navy flex items-center justify-center text-cyan text-xl mb-4"><i class="ri-tools-line"></i></div>
+        <h3 class="font-bold text-sm mb-2">Free Installation</h3>
+        <p class="text-gray-400 text-xs leading-relaxed">Free setup at home for ACs, washing machines, TVs and large appliances.</p>
+      </div>
+      <div class="bg-gray-50 border border-gray-100 rounded-2xl p-6">
+        <div class="w-12 h-12 rounded-xl bg-navy flex items-center justify-center text-cyan text-xl mb-4"><i class="ri-shield-check-line"></i></div>
+        <h3 class="font-bold text-sm mb-2">Extended Warranty</h3>
+        <p class="text-gray-400 text-xs leading-relaxed">Additional warranty beyond manufacturer terms — we stand behind what we sell.</p>
+      </div>
+      <div class="bg-gray-50 border border-gray-100 rounded-2xl p-6">
+        <div class="w-12 h-12 rounded-xl bg-navy flex items-center justify-center text-cyan text-xl mb-4"><i class="ri-exchange-line"></i></div>
+        <h3 class="font-bold text-sm mb-2">Trade-In & Exchange</h3>
+        <p class="text-gray-400 text-xs leading-relaxed">Fair value for your old device. Instant exchange in store, no online haggling.</p>
+      </div>
+      <div class="bg-gray-50 border border-gray-100 rounded-2xl p-6">
+        <div class="w-12 h-12 rounded-xl bg-navy flex items-center justify-center text-cyan text-xl mb-4"><i class="ri-bank-card-line"></i></div>
+        <h3 class="font-bold text-sm mb-2">Easy EMI Options</h3>
+        <p class="text-gray-400 text-xs leading-relaxed">0% EMI on all major cards. Zero cost financing on purchases above ₹10,000.</p>
+      </div>
+      <div class="bg-gray-50 border border-gray-100 rounded-2xl p-6">
+        <div class="w-12 h-12 rounded-xl bg-navy flex items-center justify-center text-cyan text-xl mb-4"><i class="ri-customer-service-2-line"></i></div>
+        <h3 class="font-bold text-sm mb-2">After-Sales Support</h3>
+        <p class="text-gray-400 text-xs leading-relaxed">Call, WhatsApp, or walk in — we help you long after the sale is done.</p>
+      </div>
+      <div class="bg-gray-50 border border-gray-100 rounded-2xl p-6">
+        <div class="w-12 h-12 rounded-xl bg-navy flex items-center justify-center text-cyan text-xl mb-4"><i class="ri-smartphone-line"></i></div>
+        <h3 class="font-bold text-sm mb-2">Phone Repair</h3>
+        <p class="text-gray-400 text-xs leading-relaxed">Screen replacement, battery swap, software issues — quick turnaround at fair prices.</p>
+      </div>
+      <div class="bg-gray-50 border border-gray-100 rounded-2xl p-6">
+        <div class="w-12 h-12 rounded-xl bg-navy flex items-center justify-center text-cyan text-xl mb-4"><i class="ri-gov-line"></i></div>
+        <h3 class="font-bold text-sm mb-2">Bulk & Business Orders</h3>
+        <p class="text-gray-400 text-xs leading-relaxed">Special pricing for offices, hotels, and bulk buyers. Talk to Jatha Lal directly.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── STAFF ──────────────────────────────────── -->
+<section class="bg-navy py-20 px-4 sm:px-6" id="staff">
+  <div class="max-w-7xl mx-auto">
+    <div class="mb-10">
+      <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Meet the Team</h2>
+      <p class="text-white/50 mt-2 text-sm">Real people, real advice. No commission pressure — just honest recommendations.</p>
+      <div class="w-12 h-1 bg-cyan rounded mt-4"></div>
+    </div>
+    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+      <!-- Owner -->
+      <div class="col-span-2 sm:col-span-3 lg:col-span-2 bg-cyan/10 border border-cyan/30 rounded-2xl p-6 text-center">
+        <div class="w-20 h-20 rounded-full bg-cyan flex items-center justify-center text-4xl mx-auto mb-4 border-4 border-cyan/40">👨‍💼</div>
+        <h3 class="text-cyan font-bold text-base">Jatha Lal Gadha</h3>
+        <p class="text-cyan/70 text-xs font-semibold mt-1 mb-3">Founder & Owner</p>
+        <p class="text-white/50 text-xs leading-relaxed">Started Gadha Electronics in 2005 with one shop and a promise: honest prices, honest advice. Still here every day.</p>
+      </div>
+      <!-- Staff -->
+      <div class="bg-white/5 border border-white/10 rounded-2xl p-5 text-center">
+        <div class="w-14 h-14 rounded-full bg-blue flex items-center justify-center text-2xl mx-auto mb-3">👨‍💻</div>
+        <h3 class="text-white font-bold text-sm">Ravi Sharma</h3>
+        <p class="text-cyan text-xs font-semibold mt-1 mb-2">Mobiles & Laptops</p>
+        <p class="text-white/40 text-xs leading-relaxed">10 years in tech retail. If it has a processor, Ravi knows it.</p>
+      </div>
+      <div class="bg-white/5 border border-white/10 rounded-2xl p-5 text-center">
+        <div class="w-14 h-14 rounded-full bg-blue flex items-center justify-center text-2xl mx-auto mb-3">👩‍🔧</div>
+        <h3 class="text-white font-bold text-sm">Priya Mehta</h3>
+        <p class="text-cyan text-xs font-semibold mt-1 mb-2">Service & Repairs</p>
+        <p class="text-white/40 text-xs leading-relaxed">Certified technician. Screens, batteries, motherboards — done fast.</p>
+      </div>
+      <div class="bg-white/5 border border-white/10 rounded-2xl p-5 text-center">
+        <div class="w-14 h-14 rounded-full bg-blue flex items-center justify-center text-2xl mx-auto mb-3">👨‍🔧</div>
+        <h3 class="text-white font-bold text-sm">Gurpreet Singh</h3>
+        <p class="text-cyan text-xs font-semibold mt-1 mb-2">Appliances Specialist</p>
+        <p class="text-white/40 text-xs leading-relaxed">AC, fridge, washing machine — installation and demos expert.</p>
+      </div>
+      <div class="bg-white/5 border border-white/10 rounded-2xl p-5 text-center">
+        <div class="w-14 h-14 rounded-full bg-blue flex items-center justify-center text-2xl mx-auto mb-3">👩‍💼</div>
+        <h3 class="text-white font-bold text-sm">Sunita Devi</h3>
+        <p class="text-cyan text-xs font-semibold mt-1 mb-2">Billing & Finance</p>
+        <p class="text-white/40 text-xs leading-relaxed">Handles EMI, exchange, and billing. Finds you the best payment plan.</p>
+      </div>
+      <div class="bg-white/5 border border-white/10 rounded-2xl p-5 text-center">
+        <div class="w-14 h-14 rounded-full bg-blue flex items-center justify-center text-2xl mx-auto mb-3">🧑‍🤝‍🧑</div>
+        <h3 class="text-white font-bold text-sm">Manpreet & Harjit</h3>
+        <p class="text-cyan text-xs font-semibold mt-1 mb-2">Delivery & Setup</p>
+        <p class="text-white/40 text-xs leading-relaxed">Same-day delivery duo. Careful, quick, always on time.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── TESTIMONIALS ───────────────────────────── -->
+<section class="bg-gray-50 py-20 px-4 sm:px-6">
+  <div class="max-w-7xl mx-auto">
+    <div class="mb-10">
+      <h2 class="text-3xl sm:text-4xl font-extrabold text-navy">What Customers Say</h2>
+      <p class="text-gray-400 mt-2 text-sm">We don't pay for reviews. These are real neighbours talking.</p>
+      <div class="w-12 h-1 bg-cyan rounded mt-4"></div>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="bg-white border border-gray-100 rounded-2xl p-6 shadow-sm">
+        <p class="text-amber-400 text-sm mb-3">★★★★★</p>
+        <p class="text-gray-600 text-sm leading-relaxed mb-5">Bought my Samsung TV from here last Diwali. Gurpreet came home the same day to install it — no extra charge. The price was better than what I saw online. Will always come here first.</p>
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full bg-blue/10 flex items-center justify-center text-xl">🧑</div>
+          <div><p class="font-semibold text-sm">Harinder Bhatia</p><p class="text-gray-400 text-xs">Ludhiana, Punjab</p></div>
+        </div>
+      </div>
+      <div class="bg-white border border-gray-100 rounded-2xl p-6 shadow-sm">
+        <p class="text-amber-400 text-sm mb-3">★★★★★</p>
+        <p class="text-gray-600 text-sm leading-relaxed mb-5">Jatha Lal ji himself helped me pick a laptop for my daughter's college. He didn't push the expensive one — he found the one that actually fit our budget. That kind of honesty is rare now.</p>
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full bg-blue/10 flex items-center justify-center text-xl">👩</div>
+          <div><p class="font-semibold text-sm">Kiran Arora</p><p class="text-gray-400 text-xs">Ludhiana, Punjab</p></div>
+        </div>
+      </div>
+      <div class="bg-white border border-gray-100 rounded-2xl p-6 shadow-sm">
+        <p class="text-amber-400 text-sm mb-3">★★★★☆</p>
+        <p class="text-gray-600 text-sm leading-relaxed mb-5">Priya fixed my phone screen in 2 hours flat. I'd been putting it off thinking it would cost a lot — it was completely reasonable. The after-sales support here is genuinely great.</p>
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full bg-blue/10 flex items-center justify-center text-xl">🧑</div>
+          <div><p class="font-semibold text-sm">Sukhwinder Gill</p><p class="text-gray-400 text-xs">Ludhiana, Punjab</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CONTACT ─────────────────────────────────── -->
+<section class="bg-white py-20 px-4 sm:px-6" id="contact">
+  <div class="max-w-7xl mx-auto">
+    <div class="mb-10">
+      <h2 class="text-3xl sm:text-4xl font-extrabold text-navy">Find Us</h2>
+      <p class="text-gray-400 mt-2 text-sm">Walk in, call, or WhatsApp. We're open 7 days a week.</p>
+      <div class="w-12 h-1 bg-cyan rounded mt-4"></div>
+    </div>
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
+      <div>
+        <h3 class="text-xl font-extrabold text-navy mb-6">Gadha Electronics</h3>
+        <div class="flex items-start gap-4 mb-5">
+          <i class="ri-map-pin-2-fill text-blue text-xl mt-0.5 shrink-0"></i>
+          <div><p class="font-semibold text-sm">Address</p><p class="text-gray-500 text-sm mt-1">Shop No. 14, Main Market, Civil Lines,<br>Ludhiana, Punjab — 141001</p></div>
+        </div>
+        <div class="flex items-start gap-4 mb-5">
+          <i class="ri-time-fill text-blue text-xl mt-0.5 shrink-0"></i>
+          <div><p class="font-semibold text-sm">Store Hours</p><p class="text-gray-500 text-sm mt-1">Mon–Sat: 9:30 AM – 8:30 PM<br>Sunday: 11:00 AM – 6:00 PM</p></div>
+        </div>
+        <div class="flex items-start gap-4 mb-5">
+          <i class="ri-phone-fill text-blue text-xl mt-0.5 shrink-0"></i>
+          <div><p class="font-semibold text-sm">Phone</p><p class="text-gray-500 text-sm mt-1">+91 98140 00000 &nbsp;|&nbsp; +91 162 220 0000</p></div>
+        </div>
+        <div class="flex items-start gap-4 mb-5">
+          <i class="ri-whatsapp-fill text-blue text-xl mt-0.5 shrink-0"></i>
+          <div><p class="font-semibold text-sm">WhatsApp</p><p class="text-gray-500 text-sm mt-1">+91 98140 00000 — Quick replies, 9 AM – 9 PM</p></div>
+        </div>
+        <div class="flex items-start gap-4">
+          <i class="ri-mail-fill text-blue text-xl mt-0.5 shrink-0"></i>
+          <div><p class="font-semibold text-sm">Email</p><p class="text-gray-500 text-sm mt-1">hello@gadhaelectronics.in</p></div>
+        </div>
+      </div>
+      <div class="bg-gray-50 border-2 border-dashed border-gray-200 rounded-2xl h-72 flex flex-col items-center justify-center gap-3 text-center px-8">
+        <i class="ri-map-2-line text-blue text-5xl"></i>
+        <p class="font-bold text-sm">Shop No. 14, Main Market</p>
+        <p class="text-gray-400 text-sm">Civil Lines, Ludhiana</p>
+        <a href="https://maps.google.com" target="_blank" class="text-blue font-semibold text-sm underline">Open in Google Maps →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ──────────────────────────────────── -->
+<footer class="bg-[#060e17] text-white/60 pt-14 pb-7 px-4 sm:px-6">
+  <div class="max-w-7xl mx-auto">
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-10 mb-10">
+      <div class="col-span-2 lg:col-span-1">
+        <p class="text-white font-extrabold text-xl mb-3">Gadha <span class="text-cyan">Electronics</span></p>
+        <p class="text-sm leading-relaxed max-w-xs">Family-owned since 2005. Ludhiana's honest electronics store. Come for the products, stay for the service.</p>
+      </div>
+      <div>
+        <p class="text-white font-bold text-sm mb-4">Products</p>
+        <a href="#products" class="block text-sm mb-3 hover:text-cyan transition">Mobiles</a>
+        <a href="#products" class="block text-sm mb-3 hover:text-cyan transition">Laptops</a>
+        <a href="#products" class="block text-sm mb-3 hover:text-cyan transition">Televisions</a>
+        <a href="#products" class="block text-sm mb-3 hover:text-cyan transition">Washing Machines</a>
+        <a href="#products" class="block text-sm hover:text-cyan transition">Air Conditioners</a>
+      </div>
+      <div>
+        <p class="text-white font-bold text-sm mb-4">Store</p>
+        <a href="#services" class="block text-sm mb-3 hover:text-cyan transition">Services</a>
+        <a href="#deals"    class="block text-sm mb-3 hover:text-cyan transition">Today's Deals</a>
+        <a href="#staff"    class="block text-sm mb-3 hover:text-cyan transition">Our Team</a>
+        <a href="#contact"  class="block text-sm hover:text-cyan transition">Visit Us</a>
+      </div>
+      <div>
+        <p class="text-white font-bold text-sm mb-4">Connect</p>
+        <div class="flex gap-3 mb-4">
+          <a href="#" class="w-9 h-9 bg-white/5 rounded-lg flex items-center justify-center text-base hover:bg-cyan hover:text-navy transition"><i class="ri-instagram-line"></i></a>
+          <a href="#" class="w-9 h-9 bg-white/5 rounded-lg flex items-center justify-center text-base hover:bg-cyan hover:text-navy transition"><i class="ri-facebook-fill"></i></a>
+          <a href="#" class="w-9 h-9 bg-white/5 rounded-lg flex items-center justify-center text-base hover:bg-cyan hover:text-navy transition"><i class="ri-whatsapp-line"></i></a>
+          <a href="#" class="w-9 h-9 bg-white/5 rounded-lg flex items-center justify-center text-base hover:bg-cyan hover:text-navy transition"><i class="ri-youtube-fill"></i></a>
+        </div>
+        <a href="tel:+919814000000" class="block text-sm mb-3 hover:text-cyan transition">+91 98140 00000</a>
+        <a href="mailto:hello@gadhaelectronics.in" class="block text-sm hover:text-cyan transition">hello@gadhaelectronics.in</a>
+      </div>
+    </div>
+    <div class="border-t border-white/10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs">
+      <span>© 2025 Gadha Electronics. All rights reserved. Founded by Jatha Lal Gadha.</span>
+      <div class="flex gap-3">
+        <a href="#" class="w-8 h-8 bg-white/5 rounded-lg flex items-center justify-center hover:bg-cyan hover:text-navy transition"><i class="ri-instagram-line"></i></a>
+        <a href="#" class="w-8 h-8 bg-white/5 rounded-lg flex items-center justify-center hover:bg-cyan hover:text-navy transition"><i class="ri-facebook-fill"></i></a>
+        <a href="#" class="w-8 h-8 bg-white/5 rounded-lg flex items-center justify-center hover:bg-cyan hover:text-navy transition"><i class="ri-whatsapp-line"></i></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- WhatsApp Float -->
+<a href="https://wa.me/919814000000" target="_blank"
+   class="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-[#25D366] text-white flex items-center justify-center text-3xl shadow-xl hover:scale-110 transition">
+  <i class="ri-whatsapp-line"></i>
+</a>
+
+<script>
+  // Hamburger
+  document.getElementById('hamburger').addEventListener('click', () => {
+    document.getElementById('mobile-menu').classList.toggle('hidden');
+  });
+  function closeMenu() {
+    document.getElementById('mobile-menu').classList.add('hidden');
+  }
+
+  // Category tabs
+  document.getElementById('catTabs').addEventListener('click', e => {
+    const btn = e.target.closest('[data-tab]');
+    if (!btn) return;
+    const cat = btn.dataset.tab;
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+    document.getElementById('tab-' + cat).classList.add('active');
+  });
+</script>
+</body>
+</html>
